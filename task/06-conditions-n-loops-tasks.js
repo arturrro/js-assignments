@@ -30,7 +30,17 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    var mod3 = num % 3 == 0;
+    var mod5 = num % 5 == 0;
+    if(mod3 && mod5){
+        return "FizzBuzz";
+    }else if (mod3){
+        return "Fizz"
+    }else if (mod5){
+        return "Buzz";
+    }else{
+        return num;
+    }
 }
 
 
@@ -46,7 +56,11 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    var result = 1;
+    for(var i = 2; i <= n ; i++){
+        result = result * i;
+    }
+    return result;
 }
 
 
@@ -63,7 +77,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    var sum = 0;
+    for(var i = n1; i <= n2 ; i++){
+        sum += i;
+    }
+    return sum;
 }
 
 
@@ -82,6 +100,7 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
+    // return a+b > c;
     throw new Error('Not implemented');
 }
 
@@ -209,7 +228,7 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    return str.split("").reverse().join("");
 }
 
 
@@ -226,7 +245,7 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    return new Number(reverseString(num.toString()))
 }
 
 

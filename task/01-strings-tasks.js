@@ -248,6 +248,7 @@ function encodeToRot13(str) {
         var letterCode = letter.charCodeAt(0);
 
         if(letterCode < 97 || letterCode > 122){
+            //ignore any none letters
             return letter;
         }
         var next = letterCode + 13;
@@ -310,9 +311,30 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
-}
+    var card = value.length == 2 ? value.charAt(0) : value.charAt(0) + value.charAt(1);
+    var color =value.length == 2 ? value.charAt(1) : value.charAt(2);
+    var specialCards = {
+        'A' : 0,
+        'J' : 10,
+        'Q' : 11,
+        'K' : 12
+    };
 
+    var colorsOffset = {
+        '♣' : 0,
+        '♦' : 13,
+        '♥' : 13 * 2,
+        '♠' : 13 * 3
+    };
+
+    var temp = specialCards[card];
+    if(temp === undefined){
+        temp = card-1;
+    }
+    var offset = colorsOffset[color];
+    var result = temp + offset;
+    return result;
+}
 
 module.exports = {
     concatenateStrings: concatenateStrings,

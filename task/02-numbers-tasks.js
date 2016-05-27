@@ -38,7 +38,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    throw new Error('Not implemented');
+    return 2 * Math.PI * radius;
 }
 
 /**
@@ -56,7 +56,14 @@ function getCicleCircumference(radius) {
 function getAverage(value1, value2) {
     throw new Error('Not implemented');
     // var sum = value1 + value2;
-    // return sum == 0 ? sum : sum /2;
+    // if(isFinite(sum)) {
+    //     return sum == 0 ? sum : sum /2;
+    // }else{
+        // var temp = value1.toExponential() + value2.toExponential();
+        // console.log(temp);
+        // return temp / 2;
+
+    // }
 }
 
 /**
@@ -75,7 +82,9 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
+    var x = Math.pow(x2-x1,2);
+    var y = Math.pow(y2-y1,2);
+    return Math.sqrt(x+y);
 }
 
 /**
@@ -91,6 +100,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
+    // return -b / 2 *a;
     throw new Error('Not implemented');
 }
 
@@ -129,7 +139,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    throw new Error('Not implemented');
+    return new Number(value).toString().slice(-1);
 }
 
 
@@ -145,7 +155,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    throw new Error('Not implemented');
+    return new Number(value);
 }
 
 /**
@@ -204,7 +214,13 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-    throw new Error('Not implemented');
+    //naive implementation however this is not course on algorithms ]:->
+    for(var i = 2; i < n;i++){
+        if(n%i==0){
+            return false;
+        }
+    }
+    return true;
 }
 
 /**
@@ -223,6 +239,20 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
+    // console.log("Value " + value);
+    // console.log("Def " + def);
+    // if(typeof value === 'string' || value instanceof String){
+    //     console.log("Return because of String");
+    //     console.log("**************");
+    //     return def;
+    // }
+    // var number = new Number(value);
+    // var nan = Number.isNaN(number);
+    // console.log("NaN " + nan);
+    // var result =  value === null || Number.isNaN(number) ? def : value;
+    // console.log("Result " + result);
+    // console.log("**************");
+    // return result;
     throw new Error('Not implemented');
 }
 
